@@ -6,7 +6,13 @@
 
 **不需要另外安装两个 Skill。** 它们的 `SKILL.md`、所需 `references/` 和许可文件位于本包 `references/bundled/`。WorkBuddy 的技能列表只需选中总技能；执行时由总技能按规定顺序读取两份内置方法文件。Hypit 方法只负责素材分析、画面基础稿和提示词，不执行生成。忽略其内置原始文档中的 Hypit CLI、Runtime、认证步骤；不要安装 Hypit 命令行程序、登录 Hypit 账号，或把火山方舟 Key 配进 Hypit。
 
-要实际生成视频，使用本包的 `scripts/` 直接调用火山方舟 API，默认 `doubao-seedance-2-0-260128`、`720p`。首次在 Skill 根目录运行 `python3 scripts/setup.py` 安装 Python 运行依赖，再运行 `python3 scripts/run.py status` 检查已有凭据。缺少时才在本机交互运行 `python3 scripts/run.py configure api_key`；需要私域素材库管理或本地素材上传时，另需 `configure ak`、`configure sk` 及对应项目/TOS 权限。已存储的密钥可复用。完整命令与素材流程见 [火山方舟 API 执行](ark-api-workflow.md)。WorkBuddy 的中转聊天模型 Key 不等同于火山方舟 API Key。不要把密钥写进聊天、提示词、技能包或项目文件。只做提示词无需这些配置。
+要实际生成视频，使用本包的 `scripts/` 直接调用火山方舟 API，默认 `doubao-seedance-2-0-260128`、`720p`。首次在 Skill 根目录运行 `python3 scripts/setup.py` 安装 Python 运行依赖，再运行 `python3 scripts/run.py status` 检查已有凭据。缺少时才在本机交互运行：
+
+1. `python3 scripts/run.py configure api_key`：视频生成 API Key。
+2. `python3 scripts/run.py configure ak`：私域虚拟素材库的 Access Key ID。
+3. `python3 scripts/run.py configure sk`：私域虚拟素材库的 Secret Access Key。
+
+使用私域虚拟素材时，**第 2、3 项都需要**，包括查询已有素材、上传素材、校验 `asset://` ID。还需对应的素材库 IAM/项目权限；本地文件入库另需北京 TOS 桶和权限，已有可访问的 HTTPS 素材来源则不需要本地 TOS 上传。已存储的密钥可复用。完整命令与素材流程见 [火山方舟 API 执行](ark-api-workflow.md)。WorkBuddy 的中转聊天模型 Key 不等同于火山方舟 API Key。不要把密钥写进聊天、提示词、技能包或项目文件。只做提示词无需这些配置。
 
 图像生成、Seedance、Clipcat、剪映工程编辑都是按需能力；在 WorkBuddy 中应使用实际可用的工具或等效渠道，不假定 Codex 专有的 `imagegen` 工具存在。
 

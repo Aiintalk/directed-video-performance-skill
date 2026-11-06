@@ -16,7 +16,7 @@
 
 ## 生成视频还需配置
 
-Skill 包内已包含两套**方法文件**和火山方舟 API 工具，无需再安装两个独立 Skill，也无需 Hypit 命令行或 Hypit 账号。生成视频时，首次安装本包 Python 依赖，并使用本机安全保存的火山方舟 API Key；私域素材入库还需 AK/SK、素材库权限及本地上传所需的 TOS 条件。聊天模型中转站的 Key 不等于火山方舟视频 API Key。配置细节见 [WorkBuddy 使用与依赖](references/workbuddy-setup.md)。
+Skill 包内已包含两套**方法文件**和火山方舟 API 工具，无需再安装两个独立 Skill，也无需 Hypit 命令行或 Hypit 账号。生成视频时，首次安装本包 Python 依赖，并在本机安全配置火山方舟 API Key。**上传、查询或引用私域虚拟素材时，另须配置 AK 和 SK，并具备素材库权限；从本地文件入库还需北京 TOS 桶及权限。** 即使素材已入库，本包也要用 AK/SK 校验其状态。聊天模型中转站的 Key 不等于火山方舟视频 API Key。配置细节见 [WorkBuddy 使用与依赖](references/workbuddy-setup.md)。
 
 固定流程：**Hypit 方法分析素材并写提示词 → facial-expression-prompting 方法优化表演 → 本包工具配置火山方舟凭据并上传素材 → 直接调用 Seedance 2.0 API（默认 720p）→ 验收视频。** 只要提示词时到提示词结束，无需安装运行依赖或配置密钥。
 
